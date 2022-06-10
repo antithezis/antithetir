@@ -1,12 +1,10 @@
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import AppLayout from "../components/AppLayout";
+import Button from "../components/Button";
+import GitHub from "../components/Icons/GitHub";
+import { colors } from "../styles/theme";
 
 export default function Home() {
-  const router = useRouter();
-
   return (
     <>
       <Head>
@@ -16,10 +14,48 @@ export default function Home() {
       </Head>
 
       <AppLayout>
-        <h1>
-          <a href="google.com">TEst</a>
-        </h1>
+        <section>
+          <img src="/nazi-logo.png" alt="Logo" />
+          <h1>Devter</h1>
+          <h2>
+            Talk about developvment with <br />
+            developers
+          </h2>
+          <div>
+            <Button>
+              <GitHub fill="white" width={20} height={20} />
+              Login with GitHub
+            </Button>
+          </div>
+        </section>
       </AppLayout>
+
+      <style jsx>{`
+        img {
+          width: 120px;
+        }
+        div {
+          margin-top: 16px;
+        }
+
+        section {
+          display: grid;
+          height: 100%;
+          place-content: center;
+          place-items: center;
+        }
+        h1 {
+          color: ${colors.primary};
+          font-weight: 800;
+          margin-bottom: 0;
+        }
+
+        h2 {
+          color: ${colors.secondary};
+          font-size: 18px;
+          margin: 0;
+        }
+      `}</style>
     </>
   );
 }
